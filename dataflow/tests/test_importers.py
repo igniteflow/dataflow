@@ -23,6 +23,7 @@ class ContactCsvImporter(CsvImporter):
 
 VALID_CSV_DATA = """email,name
 phil@example.com,phil
+bob@example.com,bob
 """
 
 class TestCsvImporter(TestCase):
@@ -32,5 +33,5 @@ class TestCsvImporter(TestCase):
         contact_importer = ContactCsvImporter()
         contact_importer.import_csvfile(csv_file)
         self.assertEqual(
-            Contact.objects.count(), 1
+            Contact.objects.count(), 2
         )
